@@ -1,0 +1,37 @@
+package com.example.qrscanner;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button gButton,sButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        gButton=findViewById(R.id.buttonGenerate);
+        sButton=findViewById(R.id.buttonScan);
+
+        gButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),GenerateQR.class));
+            }
+        });
+
+        sButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              startActivity(new Intent(getApplicationContext(),ScanQR.class));
+              //  val intent = Intent(this, ScanQR::class.java);
+               // startActivity(intent);
+            }
+        });
+    }
+}
